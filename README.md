@@ -61,13 +61,13 @@ alembic upgrade head
 python app/main.py
 ```
 
-The API will be available at `http://localhost:8001`
+The API will be available at `http://localhost:8000`
 
 ## API Documentation
 
 Once the server is running, visit:
-- Swagger UI: `http://localhost:8001/docs`
-- ReDoc: `http://localhost:8001/redoc`
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
 
 ## Authentication
 
@@ -174,3 +174,16 @@ JWT_REFRESH_TOKEN_EXPIRE_DAYS=7
 CORS_ORIGINS=["http://localhost:3000"]
 DEBUG=True
 ```
+
+## Production Deployment
+
+1. Set `DEBUG=False` in production
+2. Use a strong `JWT_SECRET_KEY`
+3. Configure proper CORS origins
+4. Use environment-specific database URLs
+5. Set up proper logging
+6. Use a production WSGI server like Gunicorn
+
+## License
+
+MIT License
