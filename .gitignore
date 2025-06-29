@@ -1,0 +1,71 @@
+# --- Virtual Environment ---
+# Ignore the virtual environment folder
+/venv
+/env/
+/.env
+/local_settings.py
+/instance
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore Python egg/build/distribution artifacts
+/.Python
+/build/
+/develop-eggs/
+/dist/
+/downloads/
+/eggs/
+/.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
+/share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+# --- Environment Files ---
+.env
+.env.*
+!.env.example
+
+# --- IDEs and Editors ---
+/.idea/
+/.vscode/
+*.swp
+*.swo
+
+# --- Operating System ---
+# Ignore OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- Logs ---
+# Ignore log files
+*.log
+logs/
+*.log.*
+
+# --- Alembic ---
+
+*.db
+*.sqlite3
+
+# --- Coverage reports ---
+.coverage
+.coverage.*
+/htmlcov/
+.tox/
