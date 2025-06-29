@@ -188,9 +188,9 @@ async def update_task(
     old_values = {
         "title": task.title,
         "description": task.description,
-        "status": task.status,
-        "priority": task.priority,
-        "due_date": task.due_date,
+        "status": task.status.value if task.status else None,  # Convert enum to string
+        "priority": task.priority.value if task.priority else None,  # Convert enum to string
+        "due_date": task.due_date.isoformat() if task.due_date else None,  # Convert datetime to string
         "assigned_user_id": task.assigned_user_id
     }
     
@@ -219,13 +219,13 @@ async def update_task(
     db.commit()
     db.refresh(task)
     
-    # Log task update
+    # Log task update with serialized values
     new_values = {
         "title": task.title,
         "description": task.description,
-        "status": task.status,
-        "priority": task.priority,
-        "due_date": task.due_date,
+        "status": task.status.value if task.status else None,  # Convert enum to string
+        "priority": task.priority.value if task.priority else None,  # Convert enum to string
+        "due_date": task.due_date.isoformat() if task.due_date else None,  # Convert datetime to string
         "assigned_user_id": task.assigned_user_id
     }
     
