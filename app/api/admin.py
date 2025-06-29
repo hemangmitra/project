@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
-from sqlalchemy import func, desc
+from sqlalchemy import func, desc, cast
+from sqlalchemy.dialects.postgresql import JSONB
 from typing import Optional, List
 from datetime import datetime, timedelta
 from app.core.database import get_db
@@ -182,7 +183,7 @@ async def get_user_activity(
         AuditLog.user_id == user_id,
         AuditLog.action == "TASK_UPDATED",
         AuditLog.timestamp >= start_date,
-        AuditLog.new_values.contains({"status": "done"})
+        cast(AuditLog.new_values, JSONB).contains({"status": "done"})
     ).count()
     
     # Activity by action
